@@ -20,12 +20,7 @@ public class GreetingController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		try {
-			Process p = Runtime.getRuntime().exec("python /etc/tomcat7/testscript.py");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
 
