@@ -11,32 +11,38 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AuthorizationController {
 	@Autowired
 	private userRepo repo;
-	
-	@RequestMapping(value="/auth", method= RequestMethod.POST)
-	
+
+	@RequestMapping(value = "/auth", method = RequestMethod.POST)
+
 	@ResponseBody
-	public authResultCode auth(@RequestBody userRequest request){
-		
-		authResultCode result=new authResultCode();
-		user u=repo.findByuserName(request.user_name);
-		if(u!=null){
-			if(request.password.equals(u.getpw())){
-				result.result=u.getID();
+	public authResultCode auth(@RequestBody userRequest request) {
+
+		authResultCode result = new authResultCode();
+		user u = repo.findByuserName(request.user_name);
+		if (u != null) {
+			if (request.password.equals(u.getpw())) {
+				result.result = u;
 			}
+		}else{
+			result.result=null;
 		}
 		return result;
-		
-	}
-	@RequestMapping(value="/newAccount", method= RequestMethod.POST)
-	
-	@ResponseBody
-	public authResultCode newUser(@RequestBody userRequest request){
-		authResultCode result=new authResultCode();
 
-		user newuser=new user(request.user_name,request.password);
-		repo.save(newuser);
-		result.result=newuser.getID();
+	}
+
+	@RequestMapping(value = "/newAccount", method = RequestMethod.POST)
+
+	@ResponseBody
+	public authResultCode newUser(@RequestBody userRequest request) {
+		authResultCode result = new authResultCode();
+		if (repo.findByuserName(request.user_name) == null) {
+			user newuser = new user(request.user_name, request.password);
+			repo.save(newuser);
+			result.result = newuser;
+		}else{
+			result.result=null;
+		}
 		return result;
-		
+
 	}
 }

@@ -1,7 +1,7 @@
 package com.example;
 
 public class authResultCode {
-	public String result;
+	public user result;
 	
 	public authResultCode(){
 		
