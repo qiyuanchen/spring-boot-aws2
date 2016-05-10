@@ -11,17 +11,17 @@ public class user {
 	// BINARY VALUES
 	private String userName;
 	private String password;
-	public Integer Accepts_Credit_Card=0;
-	public Integer Good_For_Groups=0;
+	public Integer Accepts_Credit_Cards=0;
+	public Integer Good_for_Groups=0;
 	public Integer Has_TV=0;
 	public Integer Happy_Hour=0;
 	public Integer Good_For_Dancing=0;
-	public Integer Good_For_Kids=0;
+	public Integer Good_for_Kids=0;
 	public Integer Alcohol=0;
 	public Integer Smoking=0;
 
 	// MULTI VALUED
-	public Noise NoiseLevel=new Noise();
+	public Noise Noise_Level=new Noise();
 
 	//public Music_ Music;
 
@@ -74,19 +74,19 @@ public class user {
 	}
 
 	public void newuser() {
-		Accepts_Credit_Card = 0;
-		Good_For_Groups = 0;
+		Accepts_Credit_Cards = 0;
+		Good_for_Groups = 0;
 		Has_TV = 0;
 		Happy_Hour = 0;
 		Good_For_Dancing = 0;
-		Good_For_Kids = 0;
+		Good_for_Kids = 0;
 		Alcohol = 0;
 		Smoking = 0;
 		new_user = true;
-		NoiseLevel.Average=0;
-		NoiseLevel.Loud=0;
-		NoiseLevel.Quiet=0;
-		NoiseLevel.Very_Loud=0;
+		Noise_Level.Average=0;
+		Noise_Level.Loud=0;
+		Noise_Level.Quiet=0;
+		Noise_Level.Very_Loud=0;
 		//Music
 		/*
 		Music.Background=0;

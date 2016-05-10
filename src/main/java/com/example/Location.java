@@ -1,6 +1,13 @@
 package com.example;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document(collection = "query")
 public class Location {
+	@Id
+	private String db_id;
 	private double lat;
 	private double lng;
 	private String id;
