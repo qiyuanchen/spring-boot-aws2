@@ -6,7 +6,7 @@ public interface ResultsRepo extends MongoRepository<Results, String> {
 
     
     public user findByid(String id);
-    
+    public void deleteByid(String id);
     
 
 }

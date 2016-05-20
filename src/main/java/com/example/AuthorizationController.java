@@ -45,4 +45,18 @@ public class AuthorizationController {
 		return result;
 
 	}
+	@RequestMapping(value = "/updateAtt", method = RequestMethod.POST)
+	@ResponseBody
+	public updateResultCode update(@RequestBody user usrr) {
+		updateResultCode result=new updateResultCode();
+		user found=repo.findByid(usrr.getID());
+		if(found!=null){
+			found.updateAtt(usrr);
+			repo.save(found);
+			result.result=true;
+		}
+		return result;
+		
+	}
+	
 }

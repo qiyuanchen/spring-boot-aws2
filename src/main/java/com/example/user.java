@@ -11,14 +11,14 @@ public class user {
 	// BINARY VALUES
 	private String userName;
 	private String password;
-	public Integer Accepts_Credit_Cards=0;
-	public Integer Good_for_Groups=0;
-	public Integer Has_TV=0;
-	public Integer Happy_Hour=0;
-	public Integer Good_For_Dancing=0;
-	public Integer Good_for_Kids=0;
-	public Integer Alcohol=0;
-	public Integer Smoking=0;
+	public Double Accepts_Credit_Cards=1.0;
+	public Double Good_for_Groups=1.0;
+	public Double Has_TV=1.0;
+	public Double Happy_Hour=1.0;
+	public Double Good_For_Dancing=1.0;
+	public Double Good_for_Kids=1.0;
+	public Double Alcohol=1.0;
+	public Double Smoking=1.0;
 
 	// MULTI VALUED
 	public Noise Noise_Level=new Noise();
@@ -26,22 +26,22 @@ public class user {
 	//public Music_ Music;
 
 	public static class Noise {
-		public Integer Quiet=0;
-		public Integer Average=0;
-		public Integer Loud=0;
-		public Integer Very_Loud=0;
+		public Double Quiet=1.0;
+		public Double Average=1.0;
+		public Double Loud=1.0;
+		public Double Very_Loud=1.0;
 		public Noise(){
 			
 		}
 	}
 
 	public static class Music_ {
-		public Integer Juke_Box=0;
-		public Integer DJ=0;
-		public Integer Karaoke=0;
-		public Integer Live=0;
-		public Integer Background=0;
-		public Integer Music_Videos=0;
+		public Double Juke_Box=1.0;
+		public Double DJ=1.0;
+		public Double Karaoke=1.0;
+		public Double Live=1.0;
+		public Double Background=1.0;
+		public Double Music_Videos=1.0;
 	}
 
 	public user(String first, String last) {
@@ -74,19 +74,19 @@ public class user {
 	}
 
 	public void newuser() {
-		Accepts_Credit_Cards = 0;
-		Good_for_Groups = 0;
-		Has_TV = 0;
-		Happy_Hour = 0;
-		Good_For_Dancing = 0;
-		Good_for_Kids = 0;
-		Alcohol = 0;
-		Smoking = 0;
+		Accepts_Credit_Cards = 1.0;
+		Good_for_Groups = 1.0;
+		Has_TV = 1.0;
+		Happy_Hour = 1.0;
+		Good_For_Dancing = 1.0;
+		Good_for_Kids = 1.0;
+		Alcohol = 1.0;
+		Smoking = 1.0;
 		new_user = true;
-		Noise_Level.Average=0;
-		Noise_Level.Loud=0;
-		Noise_Level.Quiet=0;
-		Noise_Level.Very_Loud=0;
+		Noise_Level.Average=1.0;
+		Noise_Level.Loud=1.0;
+		Noise_Level.Quiet=1.0;
+		Noise_Level.Very_Loud=1.0;
 		//Music
 		/*
 		Music.Background=0;
@@ -97,5 +97,18 @@ public class user {
 		Music.Music_Videos=0;*/
 
 	}
+	public void updateAtt(user r){
+		this.Accepts_Credit_Cards=r.Accepts_Credit_Cards;
+		this.Good_for_Groups=r.Good_for_Groups;
+		this.Has_TV=r.Has_TV;
+		this.Happy_Hour=r.Happy_Hour;
+		this.Good_For_Dancing=r.Good_For_Dancing;
+		this.Good_for_Kids=r.Good_for_Kids;
+		this.Alcohol=r.Alcohol;
+		this.Smoking=r.Smoking;
+		this.new_user=r.new_user;
+		this.Noise_Level=r.Noise_Level;
+	}
+	
 
 }

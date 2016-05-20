@@ -27,19 +27,28 @@ public class LocationController {
 	@RequestMapping(value="/getResult", method= RequestMethod.POST)
 	@ResponseBody
 	public  return_result  getLocation(@RequestBody Location location) {
+		locationRepo.save(location);
 		try {
 			Process p = Runtime.getRuntime().exec("python /etc/tomcat7/ml.py");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//while(resultsRepo.findAll().size()<30){}
+		try {
+			Thread.sleep(1500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		List<Results>result=new ArrayList<Results>();
 		for(Results i:resultsRepo.findAll()){
 			result.add(i);
+			resultsRepo.deleteByid(i.id);
 		}
 		return_result rr=new return_result();
 		rr.result=result;
-		resultsRepo.deleteAll();
 		return rr;
 		
 
